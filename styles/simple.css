@@ -1,0 +1,416 @@
+.sheet.thewitness {
+  /* Sheet Tabs */
+  /* Items List */
+}
+
+.sheet.thewitness .window-content {
+  height: 100%;
+  padding: 5px;
+}
+
+.sheet.thewitness form {
+  height: 100%;
+}
+
+.sheet.thewitness label {
+  font-weight: bold;
+}
+
+/*
+    Actor Sheet
+*/
+
+.sheet.actor.thewitness {
+  min-width: 560px;
+  min-height: 400px;
+}
+
+.sheet.actor.thewitness .sheet-header {
+  flex: 0 1 auto;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 6px;
+}
+
+.sheet.actor.thewitness .sheet-header .profile-img {
+  flex: 0 0 125px;
+  height: 125px;
+  margin: 0px;
+}
+.sheet.actor.thewitness .sheet-header .header-fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sheet.actor.thewitness .sheet-header h1.charname {
+  flex: 0 1 auto;
+}
+.sheet.actor.thewitness .sheet-header h1.charname input {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+}
+
+.sheet.actor.thewitness header .resources {
+  display: flex;
+  justify-content: space-evenly;
+}
+.sheet.actor.thewitness header .resources .resource {
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+}
+.sheet.actor.thewitness header .resources .resource input {
+  width: 3.4ex;
+  height: 1.5em;
+}
+
+.sheet.actor.thewitness header .resources .resource.primary-score input {
+  border: 0px;
+  background: none;
+  font-size: 2em;
+  text-align: center;
+  height: fit-content;
+}
+
+.sheet.actor.thewitness header .resources .resource.primary-score {
+  flex-flow: column nowrap;
+  border: 1px solid var(--color-border-light-tertiary);
+  border-radius: 0.5em;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 0.1em 0.7em;
+}
+
+.sheet.actor.thewitness .tabs {
+  flex: 0 0 auto;
+  border-top: 0px;
+  border-bottom: 1px solid var(--color-border-light-tertiary);
+  gap: 1ex;
+  justify-content: flex-start;
+  margin: 8px 0 4px 0;
+}
+.sheet.actor.thewitness .tabs .item {
+  line-height: 1.5em;
+  font-weight: bold;
+  padding: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border: 1px solid var(--color-border-light-tertiary);
+  border-bottom: 0px;
+  background: rgba(0,0,0,0.1);
+}
+.sheet.actor.thewitness .tabs .btn {
+  line-height: 1.3em;
+  font-weight: bold;
+  padding: 4px;
+  border-radius: 5px;
+  border: 1px solid var(--color-border-light-tertiary);
+  flex: 0 1 content;
+  place-self: flex-start;
+}
+.sheet.actor.thewitness .tabs .item.active {
+  text-decoration: underline;
+  text-shadow: none;
+  border-bottom: 1px solid var(--color-border-light-highlight);
+  margin-bottom: -1px;
+  background: initial;
+  box-shadow: 1px -1px 2px 0px var(--color-shadow-dark);
+}
+.sheet.actor.thewitness .sheet-body {
+  overflow: hidden;
+}
+.sheet.actor.thewitness .sheet-body .tab {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.sheet.actor.thewitness .sheet-body .statistics.active {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  gap: 1ex;
+}
+
+.sheet.actor.thewitness .sheet-body .statistics .resources {
+  flex: 0 0 11.1em;
+}
+
+.sheet.actor.thewitness .sheet-body .statistics .resources .resource {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0.5ex;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.sheet.actor.thewitness .sheet-body .statistics .resources .resource-buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 0.5em 0px;
+}
+
+.sheet.actor.thewitness .sheet-body .statistics .resources .resource label {
+  flex: 0 0 5em;
+}
+.sheet.actor.thewitness .sheet-body .statistics .resources .resource input {
+  flex: 0 0 2.3em;
+}
+
+.sheet.actor.thewitness .sheet-body .statistics .abilities {
+  height: fit-content;
+}
+
+.sheet.actor.thewitness .sheet-body .statistics .abilities .ability button {
+  width: calc(100% - 10px);
+  margin: 0 5px;
+}
+.sheet.actor.thewitness .sheet-body .statistics .abilities .ability input {
+  width: 3.5ex;
+}
+
+.sheet.actor.thewitness .editor,
+.sheet.actor.thewitness .editor-content {
+  height: 100%;
+}
+.sheet.actor.thewitness .item-list {
+  list-style: none;
+  margin: 7px 0;
+  padding: 0;
+  overflow-y: auto;
+}
+.sheet.actor.thewitness .item-list .item {
+  min-height: 30px;
+  line-height: 24px;
+  padding: 3px 0;
+  border-bottom: 1px solid #BBB;
+  align-items: stretch;
+}
+.sheet.actor.thewitness .item-list .item img {
+  flex: 0 0 24px;
+  margin-right: 5px;
+}
+.sheet.actor.thewitness .item-list .item-name {
+  margin: 0;
+}
+.sheet.actor.thewitness .item-list .item-controls {
+  flex: 0 0 36px;
+}
+.sheet.actor.thewitness .item-list .item-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  flex: 2;
+  justify-content: flex-start;
+}
+.sheet.actor.thewitness .item-list .item-button {
+  line-height: 1;
+  font-size: 11px;
+  flex: none;
+  width: auto;
+}
+
+/*
+    Item Sheet
+*/
+
+.sheet.item.thewitness {
+  min-width: 460px;
+  min-height: 400px;
+}
+
+/*
+    Roll Request Dialog
+*/
+
+.dice-select-container {
+  border: 1px solid var(--color-border-dark-secondary);
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.dice-select-container input.die {
+  display: none;
+}
+
+.dice-select-container label.die {
+  font-size: 2em;
+  line-height: 0.9em;
+}
+
+.dice-select-container input.die:checked+label.die {
+}
+
+.dice-select-container input.die:checked+label.die+label.die {
+  display: none;
+}
+
+.dice-select-container input.die:not(:checked)+label.die {
+  display: none;
+}
+
+.dice-select-container input.die:not(:checked)+label.die+label.die {
+}
+
+/*
+    Roll Descriptions
+*/
+
+.roll-title {
+  font-size: 1.5em;
+  text-align: left;
+  padding: 8px 0;
+  border-top: 2px groove var(--color-border-light-highlight);
+  border-bottom: 2px groove var(--color-border-light-highlight);
+}
+
+.roll-target {
+  border: 1px solid var(--color-border-dark-secondary);
+  padding: 3px;
+  border-radius: 7px;
+  margin: 1em 0px;
+}
+
+.roll-data {
+  display: flex;
+  text-align: left;
+  margin: 5px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.roll-data .roll-icon {
+  flex: 0 1 auto;
+  border: 0px;
+  height: 2em;
+  margin-right: 1ex;
+  margin-bottom: 5px;
+}
+
+.roll-data .roll-property {
+  flex: 1 0 auto;
+}
+.dice-flavor .roll-data .roll-property {
+  font-size: 1.3em;
+}
+
+.roll-data .roll-property .prop-name {
+  margin-right: 1ex;
+}
+.dialog-content .roll-data .roll-property .prop-name {
+  font-weight: bold;
+}
+
+.roll-data .roll-property .prop-value {
+  font-family: monospace;
+}
+
+.roll-notice {
+  border: 1px solid var(--color-border-dark-secondary);
+  border-radius: 5px;
+  padding: 6px 8px;
+}
+
+/*
+    Roll Result
+*/
+
+.dice-roll {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.roll-enhance {
+  margin-top: 5px;
+  display: flex;
+  flex-flow: row nowrap;
+  order: 3;
+  align-items: center;
+}
+
+.roll-enhance > * {
+  height: var(--form-field-height);
+  line-height: unset;
+}
+
+.dice-total.fumble {
+  border-color: rgba(150,0,0,0.9);
+}
+
+.dice-total.fail {
+  background-color: rgba(100,80,0,0.4);
+}
+
+.dice-total.crit {
+  background-color: rgba(0,100,0,0.4);
+}
+
+.dice-tooltip .dice-rolls .roll.rerolled:after {
+  content: "\2573";
+  position: absolute;
+  left: 0.4ex;
+  top: -0.1ex;
+  filter: opacity(0.8);
+  color: white;
+}
+
+/*
+    Token HUD
+*/
+
+#token-hud.thewitness .attribute input {
+  border-width: 1px;
+  border-style: solid;
+}
+
+/*
+    Combat Tracker
+*/
+
+.combat-sidebar li.combatant
+{
+  padding: 0.2em 0px;
+}
+
+.combat-sidebar li.combatant:not(:last-of-type)
+{
+  border-bottom: 1px solid var(--color-border-dark-2);
+}
+
+.combat-sidebar li.combatant .token-resource {
+  display: flex;
+  flex-flow: column nowrap;
+  border: none;
+  justify-content: space-evenly;
+}
+
+.combat-sidebar li.combatant .token-resource:not(:last-of-type)
+{
+  /* border-right: 1px solid var(--color-border-dark-2); */
+}
+
+.combat-sidebar li.combatant .token-resource .resource {
+  flex: 0 0 1em;
+  line-height: 1em;
+}
+
+.combat-sidebar li.combatant .token-resource .resource .label {
+  opacity: 0.5;
+  font-size: 0.7em;
+  margin-left: 0.1em;
+}
+
+.resource.sp .label {
+  color: #00ff00;
+}
+.resource.fp .label {
+  color: #88aaff;
+}
+.resource.mp .label {
+  color: #ff99ff;
+}
+.resource.mv .label {
+  color: #ffccaa;
+}

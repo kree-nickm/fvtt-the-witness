@@ -1,0 +1,38 @@
+{
+  "id": "thewitness",
+  "version": "0.0.1",
+  "title": "The Witness System",
+  "url": "",
+  "description": "Even the description is still in development.",
+  "license": "",
+  "authors": [
+    {
+      "name": "Kryand"
+    }
+  ],
+  "esmodules": [
+    "module/simple.js"
+  ],
+  "styles": [
+    "styles/simple.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json",
+      "flags": {}
+    }
+  ],
+  "compatibility": {
+    "minimum": "11",
+    "verified": "12.330",
+    "maximum": "^12"
+  },
+  "gridDistance": 1,
+  "gridUnits": "m",
+  "primaryTokenAttribute": "hp",
+  "secondaryTokenAttribute": "sp",
+  "manifest": "",
+  "download": ""
+}

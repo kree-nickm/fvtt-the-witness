@@ -1,0 +1,63 @@
+<div class="flexcol">
+    <div class="roll-data">
+        <div class="roll-property">
+            <span class="prop-name">Initiator:</span>
+            <span class="prop-value">{{character}}</span>
+        </div>
+        <div class="roll-property">
+            <span class="prop-name">Ability:</span>
+            <span class="prop-value">{{ability.name}} ({{type}})</span>
+        </div>
+    </div>
+  {{#if targets}}
+  {{#each targets}}
+    <div class='roll-target' data-actor="{{actorId}}">
+        <h3 class="roll-data">
+            <img class="roll-icon" src="{{img}}"/>
+            <div class="roll-property">
+                <span class="prop-name">Target:</span>
+                <span class="">{{character}}</span>
+            </div>
+        </h3>
+        <div class="roll-data">
+            <div class="roll-property">
+                <span class="prop-name">Defense:</span>
+                <span class="prop-value">{{defense}}</span>
+            </div>
+            <div class="roll-property">
+                <span class="prop-name">Toughness:</span>
+                <span class="prop-value">{{toughness}}</span>
+            </div>
+            <div class="roll-property">
+                <span class="prop-name">Ability Cap:</span>
+                <span class="prop-value">{{dice.cap}}</span>
+            </div>
+            <div class="roll-property">
+                <span class="prop-name">Stamina:</span>
+                <span class="prop-value">{{dice.stamina}}</span>
+            </div>
+            <div class="roll-property">
+                <span class="prop-name">Focus:</span>
+                <span class="prop-value">{{dice.focus}}</span>
+            </div>
+        </div>
+        
+        <!-- Dice Select Widget -->
+        {{> "systems/thewitness/templates/parts/roll-dice-select.html"}}
+        
+    </div>
+  {{/each}}
+  {{else}}
+    <div class='flexrow'>
+        <label>Roll Difficulty:</label>
+        <input name='difficulty' type='number' min='1' max='12' value='6'/>
+    </div>
+    <div class='flexrow'>
+        <label>Roll Tedium:</label>
+        <input name='tedium' type='number' min='1' max='20' value='2'/>
+    </div>
+  {{/if}}
+  {{#if skill}}
+    <p class="roll-notice nue"><i class="fa-light fa-circle-info"></i> {{character}}'s Skill of {{skill}} will be applied to the difficulty automatically.</p>
+  {{/if}}
+</div>

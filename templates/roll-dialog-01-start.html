@@ -1,0 +1,49 @@
+<div class="roll-data">
+    <div class="roll-property"><span class="prop-name">Character:</span><span class="prop-value">{{character}}</span></div>
+    <div class="roll-property"><span class="prop-name">Ability:</span><span class="prop-value">{{ability.name}} ({{type}})</span></div>
+</div>
+{{#if targetData}}
+<div class="roll-data">
+    <div class="roll-property"><span class="prop-name">Target:</span><span class="prop-value">{{targetData.name}}</span></div>
+    <div class="roll-property" title="The target's Defense is the roll's Difficulty; the target each of your dice must meet."><span class="prop-name">Defense:</span><span class="prop-value">{{targetData.defense}}</span></div>
+    <div class="roll-property" title="The target's Toughness is the roll's Tedium; the number of dice that must succeed in order for the action to pass."><span class="prop-name">Toughness:</span><span class="prop-value">{{targetData.toughness}}</span></div>
+    <div class="roll-property" title="The target's Combat cap determines that maximum number of dice they can subtract from your roll."><span class="prop-name">Combat:</span><span class="prop-value">{{targetData.evasion}}</span></div>
+</div>
+{{else}}
+<div class="roll-data">
+    <div class="roll-property" title="Double-right-click a token to target it, or, if right-clicking pops up the token HUD, click the target icon."><span class="prop-name">Target:</span><span class="prop-value"><i>none</i></span></div>
+</div>
+{{/if}}
+
+<!-- Dice Select Widget -->
+{{> "systems/thewitness/templates/parts/roll-dice-select.html"}}
+
+<div class="roll-data">
+    <div class="roll-property" title="Your bonus determines how many bonus dice you get to roll."><span class="prop-name">Bonus:</span><span class="prop-value">{{dice.bonus}}</span></div>
+    <div class="roll-property" title="Your cap limits the maximum number of dice you can roll (2 times yuor cap, if overexerting)."><span class="prop-name">Cap:</span><span class="prop-value">{{dice.cap}}</span></div>
+    <div class="roll-property" title="Your skill effectively gives you a flat bonus to the result of each die."><span class="prop-name">Skill:</span><span class="prop-value">{{dice.skill}}</span></div>
+  {{#ifeq type "physical"}}
+    <div class="roll-property" title="Your current SP, which will be spent by the dice selected above when this roll is finalized."><span class="prop-name">SP:</span><span class="prop-value">{{dice.stamina}}</span></div>
+  {{/ifeq}}
+  {{#ifeq type "mental"}}
+    <div class="roll-property" title="Your current FP, which will be spent by the dice selected above when this roll is finalized."><span class="prop-name">FP:</span><span class="prop-value">{{dice.focus}}</span></div>
+  {{/ifeq}}
+    <div class="roll-property" title="Number of dice that you will roll."><span class="prop-name">Dice:</span><span class="dice-count prop-value"></span></div>
+</div>
+
+{{#if actions}}
+<div class="roll-data">
+    <span class="prop-name">Use Action:</span>
+    <select name="action">
+      {{#each actions}}
+        <option value="{{@key}}">{{this}}</option>
+      {{/each}}
+    </select>
+</div>
+{{/if}}
+
+{{#each notices}}
+<p class="roll-notice nue"><i class="fa-light fa-circle-info"></i> {{this}}</p>
+{{/each}}
+<p class="roll-notice nue roll-overexert" style="display:none;"><i class="fa-light fa-circle-info"></i> Spending more points than your cap for this ability is called <i>overexerting</i>. All 1s you roll will be counted, and then your highest die rolls will be counted until the number of counted dice reaches your cap.</p>
+<p class="nue">This will queue the roll to chat, where the DM can finalize it by setting the Difficulty and Tedium, applying dice modifiers, etc.</p>

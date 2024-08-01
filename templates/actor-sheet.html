@@ -1,0 +1,237 @@
+<form class="flexcol {{cssClass}}" autocomplete="off">
+
+    {{!-- Sheet Header --}}
+    <header class="sheet-header">
+        <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}"/>
+        <div class="header-fields">
+            <h1 class="charname">
+                <input name="name" type="text" value="{{data.name}}" placeholder="Name"/>
+            </h1>
+            <div class="resources">
+                <div class="resource primary-score" title="Physical score">
+                    <input type="number" name="system.phy.value" value="{{data.system.phy.value}}"/>
+                    <label>PHY</label>
+                </div>
+                <div class="resource primary-score" title="Mental score">
+                    <input type="number" name="system.mnt.value" value="{{data.system.mnt.value}}"/>
+                    <label>MNT</label>
+                </div>
+                <div class="resource primary-score" title="Mobility score">
+                    <input type="number" name="system.mob.value" value="{{data.system.mob.value}}"/>
+                    <label>MOB</label>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="statistics">Statistics</a>
+        <a class="item" data-tab="description">Description</a>
+        <a class="item" data-tab="items">Items</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+
+        {{!-- Statistics Tab --}}
+        <div class="tab statistics" data-group="primary" data-tab="statistics">
+            <div class="resources">
+                <div class="resource-buttons">
+                    <button class="btn-newround" title="Start of round"><i class="fa-solid fa-rotate-right"></i></button>
+                    <button class="btn-rest" title="Rest"><i class="fa-solid fa-chair"></i></button>
+                    <button class="btn-sleep" title="Sleep"><i class="fa-solid fa-bed"></i></button>
+                </div>
+            
+                {{!-- Resources --}}
+                <h3>Resources</h3>
+                {{!-- HP --}}
+                <div class="resource" title="Health points">
+                    <label>HP:</label>
+                    <input type="number" name="system.hp.value" value="{{data.actualHP}}"/>
+                    <span> / </span>
+                    <span title="Max HP including penalties">{{data.actualMaxHP}}</span>
+                </div>
+                <div class="resource" title="Maximum health points">
+                    <label>Max HP:</label>
+                    <input type="number" title="Max HP without penalties" name="system.hp.max" value="{{data.system.hp.max}}"/>
+                </div>
+                {{!-- SP --}}
+                <div class="resource" title="Stamina points">
+                    <label>SP:</label>
+                    <input type="number" name="system.sp.value" value="{{data.actualSP}}"/>
+                    <span> / </span>
+                    <span title="Max SP including penalties">{{data.actualMaxSP}}</span>
+                </div>
+                <div class="resource" title="Maximum stamina points">
+                    <label>Max SP:</label>
+                    <input type="number" title="Max SP without penalties" name="system.sp.max" value="{{data.system.sp.max}}"/>
+                    <span> / </span>
+                    <span title="Physical score (PHY)">{{data.system.phy.value}}</span>
+                </div>
+                {{!-- FP --}}
+                <div class="resource" title="Focus points">
+                    <label>FP:</label>
+                    <input type="number" name="system.fp.value" value="{{data.actualFP}}"/>
+                    <span> / </span>
+                    <span title="Max FP including penalties">{{data.actualMaxFP}}</span>
+                </div>
+                <div class="resource" title="Maximum focus points">
+                    <label>Max FP:</label>
+                    <input type="number" title="Max FP without penalties" name="system.fp.max" value="{{data.system.fp.max}}"/>
+                    <span> / </span>
+                    <span title="Mental score (MNT)">{{data.system.mnt.value}}</span>
+                </div>
+                {{!-- MV --}}
+                <div class="resource" title="Movement">
+                    <label>MV:</label>
+                    <input type="number" name="system.mv.value" value="{{data.actualMV}}"/>
+                    <span> / </span>
+                    <span title="Max MV including penalties">{{data.actualMaxMV}}</span>
+                </div>
+                <div class="resource" title="Maximum movement">
+                    <label>Max MV:</label>
+                    <input type="number" title="Max MV without penalties" name="system.mv.max" value="{{data.system.mv.max}}"/>
+                    <span> / </span>
+                    <span title="Mobility score (MOB)">{{data.system.mob.value}}</span>
+                </div>
+                {{!-- MP --}}
+                <div class="resource" title="Magic points">
+                    <label>MP:</label>
+                    <input type="number" name="system.mp.value" value="{{data.system.mp.value}}"/>
+                    <span> / </span>
+                    <span title="Maximum magic points">{{data.system.mp.max}}</span>
+                </div>
+                <div class="resource" title="Maximum magic points">
+                    <label>Max MP:</label>
+                    <input type="number" name="system.mp.max" value="{{data.system.mp.max}}"/>
+                    <span> + </span>
+                    <input type="number" title="Additional maximum magic points" name="system.mp.mod" value="{{data.system.mp.mod}}"/>
+                </div>
+                
+                {{!-- Actions --}}
+                <h3>Actions</h3>
+              {{#each data.system.actions.interact}}
+                <div class="resource" title="Interact: {{name}}">
+                    <input type="checkbox" name="system.actions.interact.{{@key}}.available" value="1" {{#if available}}checked="true"{{/if}}/>
+                    <label>{{name}}</label>
+                </div>
+              {{/each}}
+              {{#each data.system.actions.mental}}
+                <div class="resource" title="Mental: {{name}}">
+                    <input type="checkbox" name="system.actions.mental.{{@key}}.available" value="1" {{#if available}}checked="true"{{/if}}/>
+                    <label>{{name}}</label>
+                </div>
+              {{/each}}
+              
+                {{!-- Other --}}
+                <h3>Other</h3>
+                <div class="resource" title="Defense">
+                    <label>Defense:</label>
+                    <input type="number" title="Defense" name="system.defense.value" value="{{data.system.defense.value}}"/>
+                    <span> + </span>
+                    <input type="number" title="Defense modifier" name="system.defense.mod" value="{{data.system.defense.mod}}"/>
+                </div>
+                <div class="resource" title="Toughness">
+                    <label>Toughness:</label>
+                    <input type="number" title="Toughness" name="system.toughness.value" value="{{data.system.toughness.value}}"/>
+                    <span> + </span>
+                    <input type="number" title="Toughness modifier" name="system.toughness.mod" value="{{data.system.toughness.mod}}"/>
+                </div>
+              
+                {{!-- Sleep Deprivation --}}
+                <h3>Sleep Hours</h3>
+                <div class="resource" title="Hours spent awake since you started tracking sleep deprivation">
+                    <label>Awake:</label>
+                    <input type="number" name="system.sleepRatio.awake" value="{{data.system.sleepRatio.awake}}"/>
+                </div>
+                <div class="resource" title="Hours spent asleep since you started tracking sleep deprivation">
+                    <label>Asleep:</label>
+                    <input type="number" name="system.sleepRatio.asleep" value="{{data.system.sleepRatio.asleep}}"/>
+                </div>
+                <b>Sleep-deprived {{data.system.sleepRatio.deprivation}}</b>
+            </div>
+            <table class="abilities">
+                <thead>
+                    <tr>
+                        <th colspan="3">Ability</th>
+                        <th>Cap</th>
+                        <th>Bonus</th>
+                        <th>Skill</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {{#each data.system.abilities}}
+                    <tr class="ability">
+                        <td><b>{{this.name}}</b></td>
+                        <td><button class="rollable" title="Roll {{name}} (Physical)" data-property="{{@key}}" data-type="physical"><i class="fa-solid fa-hand-fist"></i></button></td>
+                        <td><button class="rollable" title="Roll {{name}} (Mental)" data-property="{{@key}}" data-type="mental"><i class="fa-solid fa-brain"></i></button></td>
+                        <td><input type="number" size="3" name="system.abilities.{{@key}}.cap.value" min="0" value="{{this.cap.value}}"/>+<input type="number" size="3" name="system.abilities.{{@key}}.cap.mod" min="0" value="{{this.cap.mod}}"/></td>
+                        <td><input type="number" size="3" name="system.abilities.{{@key}}.bonus.value" value="{{this.bonus.value}}"/>+<input type="number" size="3" name="system.abilities.{{@key}}.bonus.mod" value="{{this.bonus.mod}}"/></td>
+                        <td><input type="number" size="3" name="system.abilities.{{@key}}.skill.value" min="-12" max="12" value="{{this.skill.value}}"/>+<input type="number" size="3" name="system.abilities.{{@key}}.skill.mod" min="-12" max="12" value="{{this.skill.mod}}"/></td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+
+        {{!-- Biography Tab --}}
+        <div class="tab description" data-group="primary" data-tab="description">
+            {{editor biographyHTML target="system.biography" button=true editable=editable engine="prosemirror"}}
+        </div>
+
+        {{!-- Owned Items Tab --}}
+        <div class="tab items" data-group="primary" data-tab="items">
+            <ol class="item-list">
+                {{#each data.items as |item id|}}
+                <li class="item flexrow" data-item-id="{{item._id}}">
+                    <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+                    <h4 class="item-name">{{item.name}}</h4>
+                    {{!-- Iterate through all attributes on the item and output buttons for any that are formula. --}}
+                    <div class="item-buttons">
+                        {{#each item.system.attributes as |itemAttr key|}}
+                        {{#if itemAttr.dtype}}
+                            {{#if itemAttr.isFormula}}
+                                {{!-- Use the items.name.key format for shorthand. --}}
+                                {{#if ../../shorthand}}
+                                <button class="item-button rollable" data-roll="@items.{{slugify item.name}}.{{key}}" data-label="{{ itemAttr.label }}"
+                                    title="{{itemAttr.value}}">{{itemAttr.label}}</button>
+                                {{!-- Use the items.name.attributes.key.value format otherwise. --}}
+                                {{else}}
+                                <button class="item-button rollable"
+                                    data-roll="@items.{{slugify item.name}}.attributes.{{key}}.value" data-label="{{ itemAttr.label }}"
+                                    title="{{itemAttr.value}}">{{itemAttr.label}}</button>
+                                {{/if}}
+                            {{/if}}
+                        {{else}}
+                            {{#each itemAttr as |itemGroupedAttr groupedKey|}}
+                                {{#if itemGroupedAttr.isFormula}}
+                                    {{!-- Use the items.name.key format for shorthand. --}}
+                                    {{#if ../../../shorthand}}
+                                    <button class="item-button rollable" data-roll="@items.{{slugify item.name}}.{{key}}.{{groupedKey}}" data-label="{{ itemGroupedAttr.label }}"
+                                        title="{{itemGroupedAttr.value}}">{{itemGroupedAttr.label}}</button>
+                                    {{!-- Use the items.name.attributes.key.value format otherwise. --}}
+                                    {{else}}
+                                    <button class="item-button rollable"
+                                        data-roll="@items.{{slugify item.name}}.attributes.{{key}}.{{groupedKey}}.value" data-label="{{ itemGroupedAttr.label }}"
+                                        title="{{itemGroupedAttr.value}}">{{itemGroupedAttr.label}}</button>
+                                    {{/if}}
+                                {{/if}}
+                            {{/each}}
+                        {{/if}}
+                        {{/each}}
+                    </div>
+                    <div class="item-controls">
+                        <a class="item-control" title="{{ localize "SIMPLE.ItemEdit" }}" data-action="edit"><i class="fas fa-edit"></i></a>
+                        <a class="item-control" title="{{ localize "SIMPLE.ItemDelete" }}" data-action="delete"><i class="fas fa-trash"></i></a>
+                    </div>
+                </li>
+                {{/each}}
+            </ol>
+            <p>
+                <a class="item-control" title="{{ localize "SIMPLE.ItemCreate" }}" data-action="create"><i class="fas fa-plus"></i> {{ localize "SIMPLE.ItemCreate" }}</a>
+            </p>
+        </div>
+        
+    </section>
+</form>

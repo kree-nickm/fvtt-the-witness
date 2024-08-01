@@ -1,0 +1,21 @@
+{
+  "TOKEN.ResourceBar3A": "Bar 3 Attribute",
+  "TOKEN.ResourceBar3D": "Bar 3 Data",
+  "TOKEN.ResourceBar4A": "Bar 4 Attribute",
+  "TOKEN.ResourceBar4D": "Bar 4 Data",
+  
+  "SIMPLE.ItemCreate": "Create Item",
+  "SIMPLE.ItemEdit": "Edit Item",
+  "SIMPLE.ItemDelete": "Delete Item",
+  "SIMPLE.ItemNew": "New Item",
+
+  "SIMPLE.ResourceMin": "Min",
+  "SIMPLE.ResourceValue": "Value",
+  "SIMPLE.ResourceMax": "Max",
+
+  "SIMPLE.AbilityRoll": "Choose Ability Dice",
+  "SIMPLE.CombatTracker": "Combat Tracker",
+
+  "SIMPLE.Create": "Create",
+  "SIMPLE.New": "New"
+}

@@ -1,0 +1,34 @@
+<div class="dice-roll">
+    <div class="dice-flavor">
+        <div class="roll-title">{{ability.name}} ({{type}}) Result</div>
+        <div class="roll-data">
+          {{#if target}}
+            <div class="roll-property"><span class="prop-name">Target:</span><span class="">{{target}}</span></div>
+          {{/if}}
+          {{#if evasion includeZero=true}}
+            <div class="roll-property"><span class="prop-name">Evasion:</span><span class="prop-value">{{evasion}}</span></div>
+          {{/if}}
+        </div>
+    </div>
+    <div class="dice-result">
+        <div class="dice-formula roll-data">
+            <div class="roll-property"><span class="prop-name">Dice:</span><span class="prop-value">{{dice}}</span></div>
+            <div class="roll-property"><span class="prop-name">Difficulty:</span><span class="prop-value">{{difficulty}}</span></div>
+            <div class="roll-property"><span class="prop-name">Tedium:</span><span class="prop-value">{{tedium}}</span></div>
+            <div class="roll-property"><span class="prop-name">Cap:</span><span class="prop-value">{{cap}}</span></div>
+        </div>
+        {{{tooltip}}}
+        <h4 class="dice-total {{totalClasses}}">{{total}} / {{tedium}}{{crits}}</h4>
+    </div>
+  {{#if canEnhance}}
+    <div class="roll-enhance">
+      <button class="roll-enhance-btn">Enhance</button>
+      <input class="roll-enhance-spend" type="number" min="0" max="{{canEnhance}}" value="{{canEnhance}}"/>
+      <select class="roll-enhance-action">
+        {{#each actions}}
+          <option value="{{key}}">{{name}}</option>
+        {{/each}}
+      </select>
+    </div>
+  {{/if}}
+</div>

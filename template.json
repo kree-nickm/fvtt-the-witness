@@ -1,0 +1,96 @@
+{
+  "Actor": {
+    "types": ["character"],
+    "htmlFields": ["biography"],
+    "character": {
+      "biography": "",
+      "hp": {
+        "value": 6,
+        "max": 6
+      },
+      "phy": {
+        "value": 8
+      },
+      "sp": {
+        "value": 8,
+        "max": 8
+      },
+      "mnt": {
+        "value": 8
+      },
+      "fp": {
+        "value": 8,
+        "max": 8
+      },
+      "mob": {
+        "value": 6.0
+      },
+      "mv": {
+        "value": 6.0,
+        "max": 6.0
+      },
+      "defense": {
+        "value": 6,
+        "mod": 0
+      },
+      "toughness": {
+        "value": 2,
+        "mod": 0
+      },
+      "mp": {
+        "value": 20,
+        "max": 20,
+        "mod": 0
+      },
+      "sleepRatio": {
+        "awake": 16,
+        "asleep": 8,
+        "deprivation": 0
+      },
+      "actions": {
+        "interact": {
+          "0":{
+            "name": "Main Hand",
+            "available": true,
+            "modifiers": []
+          },
+          "1":{
+            "name": "Off Hand",
+            "available": true,
+            "modifiers": [
+              {
+                "type": "add",
+                "property": "skill",
+                "value": -2
+              }
+            ]
+          }
+        },
+        "mental": {
+          "0":{
+            "name": "Mental",
+            "available": true,
+            "modifiers": []
+          }
+        }
+      },
+      "abilities": {}
+    }
+  },
+  "Item": {
+    "types": ["item","feature"],
+    "htmlFields": ["description"],
+    "item": {
+      "description": "",
+      "quantity": 1,
+      "weight": 0,
+      "effects": [
+      ]
+    },
+    "feature": {
+      "description": "",
+      "effects": [
+      ]
+    }
+  }
+}

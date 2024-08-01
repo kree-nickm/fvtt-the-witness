@@ -1,0 +1,19 @@
+{{#with dice}}
+<h4 class="nue">Select Dice Amount <i class="fa-light fa-circle-question" title="Click the dice below to choose how many points you want to spend. Gray dice are bonus dice, which you get to use without spending points on them. A black die is selected; an outlined die is not."></i></h4>
+<div class="dice-select-container">
+  {{#times bonusUsable}}
+    <input class="die bonus" type="checkbox" checked="checked"/>
+    <label class="die" title="Bonus die! You get to roll this for free."><i class="fa-duotone fa-dice-five"></i></label>
+  {{/times}}
+  {{#times canSpend}}
+      {{#if (or @index canSpendZero)}}
+        <input id="{{../actorId}}.selectdie.{{@index}}" class="die spent" type="checkbox"/>
+        <label class="die" for="{{../actorId}}.selectdie.{{@index}}" title="Click to spend fewer points."><i class="fa-solid fa-dice-five"></i></label>
+        <label class="die" for="{{../actorId}}.selectdie.{{@index}}" title="Click to spend more points."><i class="fa-thin fa-dice-five"></i></label>
+      {{else}}
+        <input id="{{../actorId}}.selectdie.{{@index}}" class="die spent" type="checkbox" checked="checked"/>
+        <label class="die" title="You must spend at least one point."><i class="fa-solid fa-dice-five"></i></label>
+      {{/if}}
+  {{/times}}
+</div>
+{{/with}}
