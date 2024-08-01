@@ -2,12 +2,13 @@
   "id": "thewitness",
   "version": "0.0.1",
   "title": "The Witness System",
-  "url": "",
+  "url": "https://github.com/kree-nickm/fvtt-the-witness",
   "description": "Even the description is still in development.",
   "license": "",
   "authors": [
     {
-      "name": "Kryand"
+      "name": "Kryand",
+      "url": "https://github.com/kree-nickm"
     }
   ],
   "esmodules": [
@@ -29,10 +30,14 @@
     "verified": "12.330",
     "maximum": "^12"
   },
-  "gridDistance": 1,
-  "gridUnits": "m",
+  "grid": {
+    "distance": 1,
+    "units": "m"
+  },
   "primaryTokenAttribute": "hp",
   "secondaryTokenAttribute": "sp",
-  "manifest": "",
+  "manifest": "https://raw.githubusercontent.com/kree-nickm/fvtt-the-witness/main/system.json",
+  "changelog": "https://github.com/kree-nickm/fvtt-the-witness/blob/release/CHANGELOG.md",
+  "bugs": "https://github.com/kree-nickm/fvtt-the-witness/issues",
   "download": ""
 }
